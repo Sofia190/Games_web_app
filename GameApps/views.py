@@ -38,10 +38,6 @@ def  display_available_games(request):
 
 def authors_view(request):
 	
-	#n=GameApp_1st.objects.all().count()
-	#print(n)
-
-    
 
     var = GameApp_1st()
     var1 = UserMember.objects.all()
@@ -171,35 +167,6 @@ def display_apps_rating(request):
     context = {'qs' : qs}
 
     return render(request, template_path, context)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
