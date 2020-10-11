@@ -40,3 +40,11 @@ def signup_function_view(request):
         
     return render(request, 'PLAYER/SIGNUP_FORM.html', {'form': form})
 
+
+
+
+
+
+
+
+
