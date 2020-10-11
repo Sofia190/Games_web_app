@@ -94,12 +94,7 @@ class RuleModelManager(models.Manager):
 	def get_time_frame(self, date1, date2):
     		qs=self.get_queryset()
     		qs_time_1 = qs.filter(start_date__gte=date1)
-    		qs_time_2=qs_time_1.filter(start_date__lt=date2) # Q lookups
-
-
-
-    		#qs_time_2=qs.filter(publish_date__lte=date2)
-		    #final_qs = (qs_time_1 | qs_time_2).distinct() #removes duplicates from the queryset
+    		qs_time_2=qs_time_1.filter(start_date__lt=date2) 
 
 
     		return qs_time_2
@@ -116,23 +111,6 @@ class Rule(models.Model):
 	today = models.DateField(auto_now=False, auto_now_add=False, default=timezone.now())
 
 	objects = RuleModelManager() 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
