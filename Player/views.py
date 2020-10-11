@@ -18,7 +18,7 @@ from Forum.models import UserMember
 
 
 
-User = settings.AUTH_USER_MODEL   #auth.User
+User = settings.AUTH_USER_MODEL   
 
    
 
