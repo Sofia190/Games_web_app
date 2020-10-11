@@ -30,8 +30,6 @@ class Reply_in_reply(models.Model):
 
 
 
-
-
 class Reply(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=True)  
     replies = models.ManyToManyField(Reply_in_reply)
@@ -40,6 +38,7 @@ class Reply(models.Model):
     post_date=models.DateField(auto_now=False, auto_now_add=False, default=timezone.now())
     contact_author=models.BooleanField(default=False)
     contact_details = models.ForeignKey(Email, on_delete=models.CASCADE, default=True)
+
 
 
 
@@ -78,10 +77,6 @@ class MailMessage(models.Model):
     to_user = models.ManyToManyField(User, default=True)
     sent = models.DateField(auto_now=False, auto_now_add=False, default=timezone.now())
     replies = models.ManyToManyField(MailMessageReply, default=True)
-
-
-
-
 
 
 
