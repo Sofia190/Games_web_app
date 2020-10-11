@@ -1,10 +1,5 @@
 
 
-# Create your views here.
-
-
-
-
 from django.shortcuts import render, redirect, get_object_or_404  #, login_required  
 
 
@@ -74,10 +69,6 @@ def welcome_to_game_apps_view(request):
 
 
 
-
-
-
-
 def list_view(request):
 
 
@@ -101,24 +92,15 @@ def list_view(request):
 def detail_forum(request, id):
 
 	try:
-
 		qs = Discussion.objects.get(id=id)
-
 
 	except:
 
 		raise Http404
 
 
-
-	#qs1 = Reply.objects.filter(discussion=Discussion.objects.get(id=id))      FK to Discussion
-
-	#qs1=Reply.objects.all()      # set before setting FK to None
-
-
 	qs1 =  Discussion.objects.get(id=id).d_replies.all()
 
-	
 
 	context_dictionary = {"object" : qs,
 			     "qs1" : qs1,}
@@ -147,12 +129,6 @@ def view_replies_in_reply(request, id):
 	print("Qs count =", qs1.count())
 
 
-	#qs2 = Reply_in_reply.objects.filter(reply=Reply.objects.get(id=id))    FK to Reply
-
-    #qs2=reply.objects.all()
-   
-	
-
 	context_dictionary = {
 			     "qs1" : qs1,}
 	
@@ -180,9 +156,7 @@ def create_post(request):
 	if request.method == 'POST':
 
 		if form.is_valid():
-			#print(form.cleaned_data['question'])
 			form.save()
-					#
 			print(request.user)
 			var=Discussion.objects.last()
 			var.user = request.user
@@ -216,9 +190,7 @@ def update_post(request, id):
 
     form = PostForm(request.POST or None, instance=obj)
 
-    context_dictionary = {#'object' : obj, 
-
-    					'form' : form, }
+    context_dictionary = {'form' : form, }
 
     if form.is_valid():
     	obj=form.save()
@@ -288,8 +260,7 @@ def update_reply(request, id):
 
     form = ReplyForm(request.POST or None, instance=obj)
 
-    context_dictionary = {
-    					'form' : form, }
+    context_dictionary = {'form' : form, }
 
     if form.is_valid():
     	obj=form.save()
@@ -377,11 +348,6 @@ def user_contribution_view(request, id):
 	qs1 =  UserMember.objects.get(id=id).usermember_topics.all()
 
 
-	# print(qs1.count())
-
-	# print("Games", obj.games.all().count())
-
-
 	context_dictionary = {"obj" : obj,
 			     "qs1" : qs1,}
 
@@ -432,8 +398,7 @@ def post_reply_in_reply(request, id):
 	if request.method == 'POST':
 
 		if form.is_valid():
-			#print(form.cleaned_data['question'])
-			form.save()    #var =
+			form.save()   
 			obj = Reply_in_reply.objects.last()
 			reply_instance.replies.add(obj)	
 			
@@ -444,12 +409,9 @@ def post_reply_in_reply(request, id):
 
 			form = Reply_in_reply_Form()
 			return redirect('list_view')
-
 		
 	else:
 		form = Reply_in_reply_Form()
-
-	
 
 	context_dictionary = {'form' : form,}
 	                      
@@ -471,15 +433,12 @@ def update_reply_in_reply(request, id):
 
     form = Reply_in_reply_Form(request.POST or None, instance=obj)
 
-    context_dictionary = {#'object' : obj, 
-
-    					'form' : form, }
+    context_dictionary = {'form' : form, }
 
     if form.is_valid():
     	obj=form.save()
     	obj.save()
     	return HttpResponseRedirect("/list-posts")
-
 
 
     if request.user.is_authenticated and request.user==obj.user:
@@ -544,11 +503,9 @@ def user_account_view(request, id):
 # 	else:
 # 			form = Create_user_profile_Form()
 
-
-
 	
 # 	context_dictionary = {
-# 						   'form' : form,}
+# 			 'form' : form,}
 
 # 	if request.user.is_authenticated:
 # 		template_path = "Forum/create-user-profile.html"
@@ -568,9 +525,7 @@ def update_user_profile(request, id):
 
     form = Create_user_profile_Form(request.POST or None, request.FILES, instance=obj)
 
-    context_dictionary = {#'object' : obj, 
-
-    					'form' : form, }
+    context_dictionary = {'form' : form, }
 
     if form.is_valid():
     	obj=form.save()
@@ -600,8 +555,7 @@ def settings_view(request,id):
 
 	form = SettingsForm(request.POST or None, instance=obj)
 
-	context_dictionary = {#'object' : obj, 
-	'form' : form, }
+	context_dictionary = {'form' : form, }
 
 	if form.is_valid():
 
@@ -651,7 +605,6 @@ def send_email_message(request):
 	if request.method == 'POST':
 
 		if form.is_valid():
-			#print(form.cleaned_data['question'])
 			form.save()
 			form = SendMessageForm()
 			return redirect('list_view')
@@ -715,7 +668,6 @@ def send_email_message_to_user(request,id):
 	if request.method == 'POST':
 
 		if form.is_valid():
-			#print(form.cleaned_data['question'])
 			form.save()
 			obj = MailMessage.objects.last()
 			usermember.messages.add(obj)
@@ -725,8 +677,6 @@ def send_email_message_to_user(request,id):
 		 
 	else:
 		form = SendMessageForm()
-
-	
 
 	context_dictionary = {'form' : form,}
 	                      
@@ -805,8 +755,6 @@ def add_friend(request, id1, id2):
 
 
 
-
-
 def view_friends_of_this_user(request, id):
 
 	usermember = UserMember.objects.get(id=id)
@@ -815,9 +763,7 @@ def view_friends_of_this_user(request, id):
 
 	
 
-	context_dictionary = {
-
-				 "usermember" : usermember,
+	context_dictionary = { "usermember" : usermember,
 			     "qs1" : qs1,}
 	
 
@@ -845,8 +791,6 @@ def personalize_account(request, id):
 
 
 	if request.method == 'POST':
-
-
 
 		if form.is_valid():
 			obj=form.save()
