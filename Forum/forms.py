@@ -64,9 +64,9 @@ class Create_user_profile_Form(ModelForm):
 
 		         'work_experience', 'work_start_date', 'work_end_date', 'company_name', 'attribute',
 
-				'work_experience_1', 'work_1_start_date', 'work_1_end_date', 'company_1_name', 'attribute_1',
+	         'work_experience_1', 'work_1_start_date', 'work_1_end_date', 'company_1_name', 'attribute_1',
 
-				'work_experience_2', 'work_2_start_date', 'work_2_end_date', 'company_2_name', 'attribute_2',
+	         'work_experience_2', 'work_2_start_date', 'work_2_end_date', 'company_2_name', 'attribute_2',
  
                  'education', 'education_start_date', 'education_domain', 'institution', 
 
@@ -130,47 +130,6 @@ class AccountForm(ModelForm):
 		model = UserMember
 
 		fields = ['account_image', 'favourite_games']
-
-
-
-
-
-
-
-# privacy_choices = (("1", "True"),
-# 					("2", "False"))
-
-# display_options =   (("1", "Yes"),
-# 	                ("2", "No"))
-
-# mail_options = (( "1", "Yes"),
-# 	           ( "2", "No"))
-
-
-# class SettingsForm(forms.Form): 
-#     #geeks_field = forms.MultipleChoiceField(choices = DEMO_CHOICES) 
-
-#     private = forms.MultipleChoiceField(choices=privacy_choices)
-
-#     display_topics = forms.MultipleChoiceField(choices=display_options)
-
-#     receive_messages = forms.MultipleChoiceField(choices = mail_options)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
