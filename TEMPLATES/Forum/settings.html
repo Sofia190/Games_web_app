@@ -1,0 +1,30 @@
+{% extends 'index_simple_layout.html' %}
+
+
+
+{% block main %}
+
+
+
+
+<h1> Account settings </h1>
+
+
+<br>
+<br>
+
+
+
+
+
+<form method="POST"> 
+    {% csrf_token %} 
+    {{ form.as_p }} 
+    <input type="submit" value="Submit"> 
+</form> 
+
+
+{% endblock %}
+
+
+

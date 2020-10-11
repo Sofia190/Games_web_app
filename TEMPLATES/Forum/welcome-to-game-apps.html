@@ -1,0 +1,44 @@
+{% extends 'index_simple_layout.html' %}
+
+
+
+
+{% block main %}
+
+<h2>Create a usermember account</h2>
+
+	{% for item in obj %}
+
+		{% if item.id == request.user.id %}
+  <a href="{% url 'update_user_profile' id=item.id %}" class="btn btn-default btn-xs">Click here</a> &nbsp;
+
+			<!-- {{item.id}}
+			{{request.user.id}} -->
+  		{% endif %}
+
+
+  	{% endfor %}
+
+
+<h2>Rules</h2>
+
+  <a href="{% url 'display_rules' %}" class="btn btn-default btn-xs">Click here</a> &nbsp;
+
+
+
+<h2>View Game Apps</h2>
+
+<a href="{% url 'display_available_games' %}" class="btn btn-default btn-xs">Click here</a> &nbsp;
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,200 @@
+
+{% extends "BASE.html" %}
+
+{% block title %}Rules {% endblock %}
+
+
+
+{% block main %}
+
+<style>
+
+h5 {
+
+color:  #3498db;  }
+
+
+.row {
+
+    color:  #1a5276; }   /* change the contours*/
+
+
+.list-group-item {
+
+
+background-color: #bfc9ca;}
+
+
+
+/* change the contours like row*/
+/*.col-lg-8 {             
+
+
+color: #a3e4d7;}*/
+
+
+/* change the contours like row*/
+
+/*.col-lg-offset-2 {         
+
+
+color: #a3e4d7;}
+*/
+
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12 col-lg-offset-0">
+        <!-- <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Visitors</h3>
+            </div> -->
+
+             <h3>Rules to be a usermember</h3>
+
+
+<!-- 
+            <div class="panel-footer">
+                Total &mdash; <strong>{{ visitor.num_res}} </strong>
+            </div>
+
+             <div class="panel-footer">
+                Maximum number of votes &mdash; <strong>{{ poll.maxn}} </strong>
+            </div>
+
+
+             <div class="panel-footer">
+                Total number of votes &mdash; <strong>{{ poll1.count}} </strong>
+            </div> -->
+
+             <div class="panel-footer">
+                Rules &mdash; <strong>{{ var.qs_date_count}} </strong>
+            </div>
+
+             <div class="panel-footer">
+                Active &mdash; <strong>{{ var.qs_date_count_active}} </strong>
+            </div>
+
+             <div class="panel-footer">
+                Inactive &mdash; <strong>{{ var.qs_date_count_inactive}} </strong>
+            </div>
+
+
+           
+              {% for item in var.qs_date_count_n%}
+
+                 <li class="list-group-item">
+
+
+                          <div class="panel-footer">
+
+
+
+                {%if item.start_date == item.end_date  or  item.end_date > item.today  %}
+                 <p>Active: <h5>{{item.content}}</h5></p>
+                  <p>{{item.start_date}} - {{item.end_date}}</p>
+
+                  {%elif item.start_date < item.today  and  item.end_date > item.today  %}
+                 <p>Active: <h5>{{item.content}}</h5></p>
+                  <p>{{item.start_date}} - {{item.end_date}}</p>
+
+                {% else %}
+
+                <p>Inactive: <h5>{{item.content}}</h5></p>
+                 <p>{{item.start_date}} - {{item.end_date}}</p>
+
+                 {% endif%}
+
+          
+
+               
+
+                          </div>
+
+                 </li>
+                
+              
+
+              {% endfor %}
+                         
+
+                       
+                        <!--   
+                           {% for object in qs %}
+
+                            <li class="list-group-item">
+
+
+                          <div class="panel-footer">
+
+                            <h5>{{object.content}} </h5>
+
+                            <p>{{object.start_date}} - {{object.end_date}}</p>
+
+
+
+  
+                            </div>
+
+                            </li>
+
+
+
+                          
+
+                          {% endfor %}
+ -->
+                       
+                         
+                     
+
+
+
+
+
+
+<!--         </div>
+ -->    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

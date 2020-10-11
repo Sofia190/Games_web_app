@@ -1,0 +1,78 @@
+{% extends 'BASE.html' %}
+
+
+
+{% block main %}
+
+
+ <style>
+
+  
+.panel-footer{
+  background-color:#bfc9ca;
+  height: 80px;
+  border-color: #bfc9ca;
+  color: #FFFFFF;
+  max-width: 1200px;
+  
+
+ }
+
+
+
+
+   .list-group-item {   background-color:#f8f9f9;
+                        height:100px;
+                      border-color: #f8f9f9;
+                      color: #FFFFFF;
+                      max-width: 1200px;  }
+
+
+ </style>
+
+
+
+<div class="row">
+    <div class="col-lg-12 col-lg-offset-0">
+       <!--  <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Game apps</h3>
+            </div> -->
+
+            <h3>Game apps</h3>
+
+            {% for object in qs %}
+				<li class="list-group-item">
+  					<div class="panel-footer">
+               		 <strong><a href="{% url 'PLAYER_HOME'   %}">{{object.name}}</a></strong> 
+
+<!--                		 id=object.id
+ -->
+                       <span class="pull-right">
+                         <a href="{%url 'display_app_to_rate' id=object.id %}"class="btn btn-info">View</a>
+
+
+
+                         
+                       
+                     </span>
+                    
+
+
+
+
+           			 </div>
+					
+
+				</li>
+			{% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

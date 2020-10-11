@@ -1,0 +1,34 @@
+{% extends 'BASE.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+
+{% block content %}
+
+<h1> Game Apps</h1>
+
+<br>
+<br>
+
+
+    <form role ="form"
+          action="{% url 'player_login' %}"
+          method="post">
+        {% csrf_token %}
+
+        <p>Please login</p>
+
+        {{ form | crispy}}
+
+        <button type="submit" name='signin'class="btn btn-succes">Sign in</button>
+    </form>
+
+
+
+    
+
+
+{% endblock %}

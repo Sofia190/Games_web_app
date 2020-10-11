@@ -1,0 +1,146 @@
+<!-- {% extends 'BASE.html' %}
+ -->
+
+<p>< Contributor ></p>
+
+<p><strong>{{obj.name}}</strong></p>
+
+
+
+<!--<h1>Blog Title</h1>-->
+
+
+
+{% block main %}
+
+<style>
+
+.panel-footer{
+  background-color:  #34495e ;
+  border-color:   #34495e ;
+  color: #FFFFFF;
+
+ }
+
+ .list-group-item {   background-color:#34495e;
+                      border-color: #34495e;
+                      color: #FFFFFF;  }
+
+
+/* 
+
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
+*/
+
+div {
+ 
+     overflow-wrap: break-word;}
+
+
+
+
+
+
+</style>
+
+
+
+<!-- 
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-default">
+           <div class="panel-heading">
+                <h3 class="panel-title"  = ></h3> 
+            </div> -->
+
+
+   <li class="list-group-item">
+
+                        
+                       
+   <div class="panel-footer" >
+
+
+    
+
+            <!-- Hero section start -->
+	<p><section class="hero-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="hero-text">
+								<h2>{{usermember2.name}}</h2>
+                                <p></p>
+                                <p></p>
+
+
+                                 {% if obj.image %}
+                                 <img src = "{{obj.image.url}}" width=200 height=220>
+                                 {% endif %}
+
+							</div>
+							<div class="hero-info">
+								<h2></h2>
+								<ul>
+									
+									<li><span>Join date : </span>{{usermmber2.join_date}}</li>
+									
+								</ul>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</section></p>
+
+                      
+
+
+                           <h3>Games contributed: </h3>
+
+
+                           {%if object.games.count != 0 %}
+
+
+                          {% for item in usermember2.games.all %} 
+
+                              
+
+                                <h5>{{item.name}}</h5> 
+
+                            
+                          {%endfor%}
+                          {% else %}
+                              Currently no contributions 
+                          {% endif %}
+        </div>
+         
+
+                      
+      </li>
+                 
+
+<!--  </div>
+
+</div>
+
+</div> -->
+
+  <form method="POST">
+  {% csrf_token %}
+ <button type="submit" class="btn btn-info"> Add friend</button>
+  </form>
+
+
+                  
+   {% endblock %}
+
+                     
+                       

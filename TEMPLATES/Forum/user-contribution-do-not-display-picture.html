@@ -1,0 +1,157 @@
+<!-- {% extends 'BASE.html' %}
+ -->
+
+<p>< Contributor ></p>
+
+<p><strong>{{obj.name}}</strong></p>
+
+
+
+<!--<h1>Blog Title</h1>-->
+
+
+
+{% block main %}
+
+<style>
+
+.panel-footer{
+  background-color:  #34495e ;
+  border-color:   #34495e ;
+  color: #FFFFFF;
+
+ }
+
+ .list-group-item {   background-color:#34495e;
+                      border-color: #34495e;
+                      color: #FFFFFF;  }
+
+
+/* 
+
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}
+*/
+
+div {
+ 
+     overflow-wrap: break-word;}
+
+
+
+
+
+
+</style>
+
+
+
+<!-- 
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-default">
+           <div class="panel-heading">
+                <h3 class="panel-title"  = ></h3> 
+            </div> -->
+
+
+   <li class="list-group-item">
+
+                        
+                       
+   <div class="panel-footer" >
+
+
+    
+
+            <!-- Hero section start -->
+	<p><section class="hero-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="hero-text">
+								<h2>{{obj.name}}</h2>
+                                <p></p>
+                                <p></p>
+
+
+							</div>
+							<div class="hero-info">
+								<h2></h2>
+								<ul>
+									
+									<li><span>Join date : </span>{{obj.join_date}}</li>
+									
+								</ul>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</section></p>
+
+                      
+
+
+                       <h3>Topics: <h3>
+
+            	
+                      {% for object in qs1 %}
+                    
+                       	 <h1><a href="{% url 'detail_forum'  id=object.id %}">{{object.title}}</a></h1>
+                         <p><strong>{{object.content}}</strong></p>
+                         <p><strong>Posted : {{ object.post_date}}</strong></p>
+
+                        
+                                                  
+
+                  
+                      {% endfor %} 
+
+
+                 <hr style="height:2px;border-width:0;color:#eaeded;background-color:gray"> 
+
+                           <h3>Games contributed: </h3>
+
+
+                           {%if object.games.count != 0 %}
+
+
+                          {% for item in obj.games.all %} 
+
+                              
+
+                                <h5>{{item.name}}</h5> 
+
+                            
+                          {%endfor%}
+                          {% else %}
+                              Currently no contributions 
+                          {% endif %}
+        </div>
+         
+
+                      
+      </li>
+                 
+
+<!--  </div>
+
+</div>
+
+</div> -->
+
+
+
+
+                  
+   {% endblock %}
+
+                     
+                       

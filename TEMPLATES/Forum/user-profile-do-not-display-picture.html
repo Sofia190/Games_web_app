@@ -1,0 +1,401 @@
+ {% extends 'BASE.html' %}
+
+
+
+{% block main %}
+
+
+<style>
+
+  div {
+ 
+     overflow-wrap: break-word;}
+
+
+
+</style>
+
+
+
+
+
+<head>
+
+<strong>User member</strong>
+					
+</head>
+
+
+
+<body>
+
+   <li class="list-group-item">
+
+                        
+                       
+   <div class="panel-footer" >
+
+
+	<!-- Hero section start -->
+	<p><section class="hero-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="hero-text">
+								<h2>{{obj.name}}</h2>
+                                <p></p>
+                                <p></p>
+
+                                
+
+								<p>{{obj.description}}</p>
+							</div>
+							<div class="hero-info">
+								<h2>General Info</h2>
+								<ul>
+									<span><strong>About:</strong></span>
+									<li><span>Join date : </span>{{obj.join_date}}</li>
+									<li><span>Contact: </span>{{obj.contact_details.email_addr}}</li>
+									
+								</ul>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</section></p>
+	<!-- Hero section end -->
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+    
+
+	<!-- Social links section start -->
+	<p><div class="social-section">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="social-link-warp">
+						<div class="social-links">
+							<a href=""><i class="fa fa-pinterest"></i></a>
+							<a href=""><i class="fa fa-linkedin"></i></a>
+							<a href=""><i class="fa fa-instagram"></i></a>
+							<a href=""><i class="fa fa-facebook"></i></a>
+							<a href=""><i class="fa fa-twitter"></i></a>
+						</div>
+						<h2 class="hidden-md hidden-sm">My Social Profiles</h2>
+						<a href="https:///{{obj.social_profile_1}}">GIT HUB</a>
+				</div>
+			</div>
+		</div>
+	</div></p>
+	<!-- Social links section end -->
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+
+
+
+	<!-- Resume section start -->
+	<p><section class="resume-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-7 offset-xl-2">
+					<div class="section-title">
+						<h2>Work Experience</h2>
+					</div>
+					<ul class="resume-list">
+						<li>
+							<h2>{{obj.work_start_date}}-{{obj.work_end_date}}</h2>
+							<h3>{{obj.company_name}}</h3>
+							<h4>{{obj.attribute}}</h4>
+							<p>{{obj.work_experience}} </p>
+						</li>
+						<li>
+							<h2>{{obj.work_1_start_date}}-{{obj.work_1_end_date}}</h2>
+							<h3>{{obj.company_1_name}}</h3>
+							<h4>{{obj.attribute_1}}</h4>
+							<p>{{obj.work_experience_1}} </p>
+						</li>
+                         <li>
+							<h2>{{obj.work_2_start_date}}-{{obj.work_2_end_date}}</h2>
+							<h3>{{obj.company_2_name}}</h3>
+							<h4>{{obj.attribute_2}}</h4>
+							<p>{{obj.work_experience_2}} </p>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section></p>
+	<!-- Resume section end -->
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+
+
+	<!-- Resume section start -->
+	<p><section class="resume-section with-bg spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-7 offset-xl-2">
+					<div class="section-title">
+						<h2>Education</h2>
+					</div>
+					<ul class="resume-list">
+						<li>
+							<h2>{{obj.education_start_date}}</h2>
+							<h3>{{obj.education_domain}}</h3>
+							<h4>{{obj.institution}}</h4>
+							<p>{{obj.education}} </p>
+						</li>
+						<li>
+                            <h2>{{obj.education_1_start_date}}</h2>
+							<h3>{{obj.education_1_domain}}</h3>
+							<h4>{{obj.institution_1}}</h4>
+							<p>{{obj.education_1}} </p>
+					
+						</li>
+
+						<li>
+                            <h2>{{obj.education_2_start_date}}</h2>
+							<h3>{{obj.education_2_domain}}</h3>
+							<h4>{{obj.institution_2}}</h4>
+							<p>{{obj.education_2}} </p>
+					
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section></p>
+	<!-- Resume section end -->
+
+	<hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+
+	
+	<!-- Review section start -->
+	<p><section class="review-section spad pb-0">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-7 offset-xl-2">
+					<div class="section-title">
+						<h2>References</h2>
+					</div>
+					<div class="review-slider owl-carousel">
+						
+						<div class="single-review">
+							<div class="qut">“</div>
+							<p>{{obj.ref_description}} </p>
+							<div class="qut">“</div>
+							<h3>{{obj.ref_from_person}}</h3>
+							<h4>{{obj.ref_from_person_pos}},{{obj.ref_from_company}}</h4>
+						</div>
+						<div class="single-review">
+							<div class="qut">“</div>
+							<p>{{obj.ref_1_description}} </p>
+							<div class="qut">“</div>
+							<h3>{{obj.ref_1_from_person}}</h3>
+							<h4>{{obj.ref_1_from_person_pos}},{{obj.ref_1_from_company}}</h4>	
+						</div>
+						<div class="single-review">
+							<div class="qut">“</div>
+							<p>{{obj.ref_2_description}} </p>
+							<div class="qut">“</div>
+							<h3>{{obj.ref_2_from_person}}</h3>
+							<h4>{{obj.ref_2_from_person_pos}},{{obj.ref_2_from_company}}</h4>
+							
+						</div>
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section></p>
+	<!-- Review section end -->
+
+
+	<hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+
+
+
+
+	<!-- Portfolio section start -->
+	<p><section class="portfolio-section spad pb-0">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-4 col-md-8 offset-xl-2 ">
+					<div class="section-title">
+						<p></p>
+						<p></p>
+						<h2>Portfolio</h2>
+					</div>
+				</div>
+				
+			</div>
+			<div class="portfolio-warp">
+				<div class="row">
+					
+					<div class="col-xl-3 col-lg-6 col-md-6">
+						<div class="portfolio-item">
+							<a href="img/portfolio/3.jpg" class="set-bg port-pic" data-setbg="img/portfolio/3.jpg"></a>
+							<h2>{{obj.portofolio_project_name}}</h2>
+							<p>{{obj.portofolio_project_domain}}</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-md-6">
+						<div class="portfolio-item">
+							<a href="img/portfolio/4.jpg" class="set-bg port-pic" data-setbg="img/portfolio/4.jpg"></a>
+							<h2>{{obj.portofolio_project_1_name}}</h2>
+							<p>{{obj.portofolio_project_1_domain}}</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-md-6">
+						<div class="portfolio-item">
+							<a href="img/portfolio/4.jpg" class="set-bg port-pic" data-setbg="img/portfolio/4.jpg"></a>
+							<h2>{{obj.portofolio_project_2_name}}</h2>
+							<p>{{obj.portofolio_project_2_domain}}</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-md-6">
+						<div class="portfolio-item">
+							<a href="img/portfolio/4.jpg" class="set-bg port-pic" data-setbg="img/portfolio/4.jpg"></a>
+							<h2>{{obj.portofolio_project_3_name}}</h2>
+							<p>{{obj.portofolio_project_3_domain}}</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-md-6">
+						<div class="portfolio-item">
+							<a href="img/portfolio/4.jpg" class="set-bg port-pic" data-setbg="img/portfolio/4.jpg"></a>
+							<h2>{{obj.portofolio_project_4_name}}</h2>
+							<p>{{obj.portofolio_project_4_domain}}</p>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-md-6">
+						<div class="portfolio-item">
+							<a href="img/portfolio/4.jpg" class="set-bg port-pic" data-setbg="img/portfolio/4.jpg"></a>
+							<h2>{{obj.portofolio_project_5_name}}</h2>
+							<p>{{obj.portofolio_project_5_domain}}</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section></p>
+	<!-- Portfolio section end -->
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+
+
+	<!-- Extra section start -->
+	<p><section class="extra-section spad pb-0">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-8 offset-xl-2">
+					<div class="section-title">
+						<h2>Extra Skills</h2>
+					</div>
+					<div class="row">
+						<div class="col-lg-3 col-md-6 pt-5">
+							<div class="fact-box trans">
+								<div class="fact-content">
+									<div class="circle-progress">
+										<div id="progress1" class="prog-circle"></div>
+										<div class="progress-info">
+											<h2>{{obj.skill_1_percentage}}%</h2>
+										</div>
+										<div class="prog-title">
+											<h3>{{obj.skill_1}}</h3>
+											<p>{{obj.phrase_1}}</p>
+										</div>			
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 pt-5">
+							<div class="fact-box trans">
+								<div class="fact-content">
+									<div class="circle-progress">
+										<div id="progress2" class="prog-circle"></div>
+										<div class="progress-info">
+											<h2>{{obj.skill_2_percentage}}%</h2>
+										</div>
+										<div class="prog-title">
+											<h3>{{obj.skill_2}}</h3>
+											<p>{{obj.phrase_2}}</p>
+										</div>			
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="fact-box">
+								<div class="fact-content">
+									<img src="img/icon/1-w.png" alt="">
+									<h2>{{obj.years_of_experience}}</h2>
+									<p>Years of Experience</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="fact-box">
+								<div class="fact-content">
+									<img src="img/icon/2-w.png" alt="">
+									<h2>{{obj.awards_won}}</h2>
+									<p>Awards Won</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section></p>
+	<!-- Extra section end -->
+
+
+	<hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
+
+
+
+	<!-- Contact section start -->
+	<p><section class="contact-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-8 offset-xl-2">
+					<div class="section-title">
+						<h2>Contact Me</h2>
+					    <a href="#" class="site-btn mb-5">Email</a>
+
+			</div>
+		</div>
+	</section></p>
+	<!-- Contact section end -->
+
+</div>
+
+</li>
+
+	
+
+
+</body>
+</html>
+
+
+{% endblock %}
+
+
+
+
