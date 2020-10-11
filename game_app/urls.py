@@ -18,7 +18,7 @@ Including another URLconf
 from django.conf import settings
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
 from django.conf.urls import  url
 
@@ -72,11 +72,10 @@ from GameApps.views import (display_available_games, authors_view, display_rules
 
 urlpatterns = [
                 path('admin/', admin.site.urls),
-              
-
-                #player
+             
                path('', welcome, name='Game_apps_welcome'),
-
+               
+                #player
 
                path('login/', LoginView.as_view(template_name="PLAYER/LOGIN_FORM.html"),
                name='player_login'),
@@ -89,7 +88,9 @@ urlpatterns = [
                path("game-apps-welcome/", welcome_to_game_apps_view, name="welcome_to_game_apps_view"),
 
                path('list-posts/', list_view, name="list_view"),
+    
                path('detail-forum/<int:id>/', detail_forum, name="detail_forum"),
+    
                path('create/', create_post, name="create_post"),
 
                path('list-posts/create/', create_post, name="create_post"),
@@ -97,17 +98,23 @@ urlpatterns = [
                path('update/<int:id>/', update_post, name="update_post"),
 
                path('reply/<int:id>/', post_reply, name="post_reply"),
+    
                path('update-message/<int:id>/', update_reply, name="update_reply"),
+    
                path('list-posts/update/<int:id>/', my_view, name="my_view"),
+    
                path('list-posts/reply/<int:id>/', my_view1, name="my_view1"),
            
                path('user/<int:id>/', user_profile_view, name='user_profile_view'),
+    
                path('user/work/<int:id>/', user_contribution_view, name='user_contribution_view'),
+    
                path('reply-in-reply/<int:id>/', post_reply_in_reply, name="post_reply_in_reply"),
 
                path('replies-to-reply/<int:id>/', view_replies_in_reply, name="view_replies_in_reply"),
 
                path('update-message-in-reply/<int:id>/', update_reply_in_reply, name="update_reply_in_reply"),
+    
 
                #gameapps
 
@@ -116,14 +123,12 @@ urlpatterns = [
                path("authors/", authors_view, name="authors"), 
 
                path("user-account/<int:id>/", user_account_view, name="user_account_view"), 
-
+    
               # path("create-user/", create_user_profile, name="create_user_profile"),
-
 
               path("update-user-profile/<int:id>/", update_user_profile, name="update_user_profile"),
 
               path("settings/<int:id>/", settings_view, name="settings_view"),
-
               
               path("usermembers/", list_user_members, name="list_user_members"),
 
@@ -133,29 +138,21 @@ urlpatterns = [
  
               path("send-mail-to-user/<int:id>/", send_email_message_to_user, name="send_email_message_to_user" ),
 
-              
               path("friends/<int:id>/", view_friends_of_this_user, name="view_friends_of_this_user" ),
 
               path("add-user-friend/<int:id1>/<int:id2>/", add_friend, name="add_friend" ),
-
-
+    
               path("rules-to-become-usermember/", display_rules, name="display_rules"),
-
 
               path("app-rating/<int:id>/", display_app_to_rate, name="display_app_to_rate"),
 
-
               path("user/work/<int:id>/send-mail-to-user/", send_email_message_to_user, name="send_email_message_to_user" ),
-
 
               path("personalize-user-account/<int:id>/", personalize_account, name="personalize_account"),
 
-
               path("user-account/<int:id>/personalize-user-account/", personalize_account, name="personalize_account"),
-
               
               path("user-account-delete/<int:id>/", usermember_delete_view, name="usermember_delete_view"),
-
               
               path("apps-rating/", display_apps_rating, name="display_apps_rating"),
 
@@ -167,16 +164,6 @@ if settings.DEBUG:
   #test mode
   from django.conf.urls.static import static
   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-
-
-
-
-
-
-
-
 
 
 
