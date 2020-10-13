@@ -49,6 +49,7 @@ welcome_to_game_apps_view,
   view_replies_in_reply,
   update_reply_in_reply,
   user_account_view,
+  create_user_profile,
   update_user_profile,
   settings_view,
   list_user_members,
@@ -124,7 +125,7 @@ urlpatterns = [
 
                path("user-account/<int:id>/", user_account_view, name="user_account_view"), 
     
-              # path("create-user/", create_user_profile, name="create_user_profile"),
+              path("create-user/", create_user_profile, name="create_user_profile"),
 
               path("update-user-profile/<int:id>/", update_user_profile, name="update_user_profile"),
 
