@@ -485,34 +485,32 @@ def user_account_view(request, id):
 
 
 
-# def create_user_profile(request):
+def create_user_profile(request):
 
-# 	form =  Create_user_profile_Form(request.POST)
+	form =  Create_user_profile_Form(request.POST)
 
+	if request.method == 'POST':
 
-
-# 	if request.method == 'POST':
-
-		
-
-# 		if form.is_valid():
-# 			#print(form.cleaned_data['question'])
-# 			form.save()
-# 			form = Create_user_profile_Form()
-# 			return redirect('list_view')
-# 	else:
-# 			form = Create_user_profile_Form()
+		if form.is_valid():
+			form.save()
+			obj = UserMember.objects.last()
+			obj.user = request.user
+			obj.save()
+			form = Create_user_profile_Form()
+			return redirect('list_view')
+	else:
+			form = Create_user_profile_Form()
 
 	
-# 	context_dictionary = {
-# 			 'form' : form,}
+	context_dictionary = {
+			 'form' : form,}
 
-# 	if request.user.is_authenticated:
-# 		template_path = "Forum/create-user-profile.html"
-# 	else:
-# 		template_path = "BASE.html"
+	if request.user.is_authenticated:
+		template_path = "Forum/create-user-profile.html"
+	else:
+		template_path = "BASE.html"
 
-# 	return render(request, template_path, context_dictionary)
+	return render(request, template_path, context_dictionary)
 
 
 
